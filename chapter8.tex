@@ -412,7 +412,7 @@ LRFは、主に単一のレーザ光源(Velodyne HDLシリーズは複数)と反
 LRFの使用にあたっては、以下の3つの点に留意する必要がある。
 第一に、LRFが使用する出力の高いレーザは、眼の網膜を損傷する危険がある。レーザの安全基準\footnote{\url{https://ja.wikipedia.org/wiki/\%E3\%83\%AC\%E3\%83\%BC\%E3\%82\%B6\%E3\%83\%BC}}は出力や波長によってクラス1からクラス4まで複数のクラスに分けられ、クラスが高くなるほど危険性が増す。クラス1は、眼に対して安全な製品であり、直接裸目で見ても問題ない。詳しくは「レーザ製品の放射安全基準」（JIS C 6802）を参照してほしい。先に紹介したLRFは、すべてクラス1に該当する。
 第二に、投射したレーザの反射光を捉えることで距離測定を行うため、レーザを反射しない対象物までの距離は計測できないことである。つまり、透明なガラス、ペットボトル、鏡、色の濃い物体などは、レーザが反射されずに透過したり、全反射したり、吸収されたり、複数の方向にレーザが拡散するため、距離値が得られない場合がある。
-　第三に、一般には水平面を走査するセンサなので、水平面上の物体しか検出できない(Velodyne HDLシリーズは除く)。
+第三に、一般には水平面を走査するセンサなので、水平面上の物体しか検出できない(Velodyne HDLシリーズは除く)。
 
 %-------------------------------------------------------------------------------
 \subsection{LRFの接続とテスト}
@@ -553,7 +553,7 @@ ToF方式のセンサ\footnote{\url{http://en.wikipedia.org/wiki/Time-of-flight\
 %-------------------------------------------------------------------------------
 \subsubsection{パターン投影方式}
 
-パターン投影方式を使用しているデプスカメラには、Microsoft社のKinect\footnote{\url{http://en.wikipedia.org/wiki/Kinect}}やASUS\\社のXtion\footnote{\url{http://www.asus.com/Multimedia/Xtion\_PRO\_LIVE/}}、PrimeSense社のCarmine、Capriなどがあり、最近ではOccipital社からStructure Sensor\footnote{\url{http://structure.io/}}が発売されている。これらのデプスカメラは、共通してPrimeSen\\se社のPrimeSense SoC（System on a Chip、半導体チップ上に機能を集積した集積回路）を使用している。
+パターン投影方式を使用しているデプスカメラには、Microsoft社のKinect\footnote{\url{http://en.wikipedia.org/wiki/Kinect}}やASUS社のXtion\footnote{\url{http://www.asus.com/Multimedia/Xtion\_PRO\_LIVE/}}、PrimeSense社のCarmine、Capriなどがあり、最近ではOccipital社からStructure Sensor\footnote{\url{http://structure.io/}}が発売されている。これらのデプスカメラは、共通してPrimeSense社のPrimeSense SoC（System on a Chip、半導体チップ上に機能を集積した集積回路）を使用している。
 
 \begin{figure}[htp]
   \centering
@@ -561,7 +561,7 @@ ToF方式のセンサ\footnote{\url{http://en.wikipedia.org/wiki/Time-of-flight\
   \caption{左からKinect Xbox、Xtion、Carmine、Structure Sensor}
 \end{figure}
 
-PrimeSense社のPrimeSense SoCを使用したデプスカメラは、一対の赤外線プロジェクターと赤外線カメラからなるセンサで、特殊な投影パターンを持つ赤外線ドットを計測物体に投影し、この点の分布を赤外線カメラで計測している。ここで計測物体上の赤外線ドットのパターンは、平らな物体であれば投影パターンと同じであるが、障害物の形状が変化すると歪みが生じる。図8-16は壁を計測したときに赤外線ドットのパターンである。ドットパターンの変形量と赤外線プロジェクター・赤外線カメラ間の距離を用いると、物体表面の各点までの距離が計算できる。
+PrimeSense社のPrimeSense SoCを使用したデプスカメラは、一対の赤外線プロジェクターと赤外線カメラからなるセンサで、特殊な投影パターンを持つ赤外線ドットを計測物体に投影し、この点の分布を赤外線カメラで計測している。ここで計測物体上の赤外線ドットのパターンは、平らな物体であれば投影パターンと同じであるが、障害物の形状が変化すると歪みが生じる。図8-15は壁を計測したときに赤外線ドットのパターンである。ドットパターンの変形量と赤外線プロジェクター・赤外線カメラ間の距離を用いると、物体表面の各点までの距離が計算できる。
 
 \begin{figure}[htp]
   \centering
@@ -614,7 +614,7 @@ $ sudo apt-get install ros-indigo-pcl-ros
 $ rosrun pcl_ros pcd_to_pointcloud cloud_file.pcd _frame_id:=/map
 \end{lstlisting}
 
-これにより、図8-17 のようにRVizに点群データが表示される。
+これにより、図8-16のようにRVizに点群データが表示される。
 
 \begin{figure}[htp]
   \centering
@@ -662,8 +662,8 @@ $ roslaunch openni2_launch openni2.launch
 
 \begin{itemize}
 \item 設定の[Global Options]→[Fixed Frame]を「camera\_depth\_frame」に変更する。
-\item RViz左下の<Add>ボタンをクリックして、[PointCloud2]を選択して追加する。その後、図8-18に示すように「Topic」を「/camera/depth/points」、点群の模様である「Style」を「FlatSquares」、点群のサイズである「Size」を「0.01」に設定を変更する。
-\item 図8-18のように点群データを確認することができる。色の基準をX軸に指定したので、点群がX軸から遠ざかるほど紫色に表示される。
+\item RViz左下の<Add>ボタンをクリックして、[PointCloud2]を選択して追加する。その後、図8-17に示すように「Topic」を「/camera/depth/points」、点群の模様である「Style」を「FlatSquares」、点群のサイズである「Size」を「0.01」に設定を変更する。
+\item 図8-17のように点群データを確認することができる。色の基準をX軸に指定したので、点群がX軸から遠ざかるほど紫色に表示される。
 \end{itemize}
 
 \begin{figure}[htp]
@@ -675,7 +675,7 @@ $ roslaunch openni2_launch openni2.launch
 %-------------------------------------------------------------------------------
 \subsection{デプスカメラの用途}
 
-デプスカメラの用途は多岐に渡るが、代表的な例に3次元SLAMや、移動ロボットや無人自動車などで用いられる障害物回避、あるいは人の骨格情報などを利用したヒューマンインタフェースなどがある。例えば、図8-17の二次元バーコードを読み取り、デプスカメラを用いたモーションキャプチャやロボットの遠隔操作、ジェスチャーを使用した移動ロボットへの指示などを紹介する動画を参照されたい。
+デプスカメラの用途は多岐に渡るが、代表的な例に3次元SLAMや、移動ロボットや無人自動車などで用いられる障害物回避、あるいは人の骨格情報などを利用したヒューマンインタフェースなどがある。例えば、図8-18の動画(\url{https://youtu.be/ath8uNv9c\_Q}, \url{https://youtu.be/Es3ai-vaXkQ})より、デプスカメラを用いたモーションキャプチャやロボットの遠隔操作、ジェスチャーを使用した移動ロボットへの指示などを参照されたい。
 
 \begin{figure}[htp]
   \centering
