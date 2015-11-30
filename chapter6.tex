@@ -464,7 +464,7 @@ $ roscd irvs_ros_tutorials
 $ gedit CMakeLists.txt
 \end{lstlisting}
 
-以下のCMakeLists.txtは、6.2.3項で作成したファイルを本節で作成するパッケージに合わせて変更したものである。前節のパッケージに、サービスサーバノードとクライアントノード、サービスファイル(*.srv)の内容を追加した(太字)。各オプションの詳細については、3.4.3項を参照してほしい。
+以下のCMakeLists.txtは、6.2.3項で作成したファイルを本節で作成するパッケージに合わせて変更したものである。前節のパッケージに、サービスサーバノードとクライアントノード、サービスファイル(*.srv)の内容を追加した。各オプションの詳細については、3.4.3項を参照してほしい。
 
 \noindent\textbf{ファイル名: CMakeLists.txt}
 \begin{lstlisting}[language=make]
@@ -913,12 +913,12 @@ int main(int argc, char **argv)
 }
 \end{lstlisting}
 
-大部分は、6.3.3項で  作成した内容と同じだが、新たに追加した部分について見ていこう。特に、太字で表示した「setParam」と「getParam」がパラメータ処理を行う箇所で重要なので、以下で詳しく説明する。
+大部分は、6.3.3項で  作成した内容と同じだが、新たに追加した部分について見ていこう。特に、「setParam」と「getParam」がパラメータ処理を行う箇所で重要なので、以下で詳しく説明する。
 
 %-------------------------------------------------------------------------------
 \subsection{パラメータの設定}
 
-6.4.1項のプログラムの最初の太字の部分では、  calculation\_methodという名前のパラメータをPLUSに設定している。
+6.4.1項のプログラムの最初の部分では、calculation\_methodという名前のパラメータをPLUSに設定している。
 
 \begin{lstlisting}[language=C++]
 nh.setParam("calculation_method", PLUS);
@@ -929,7 +929,7 @@ PLUSは、6.4.1項のプログラムの冒頭で1と定義したので、calcula
 %-------------------------------------------------------------------------------
 \subsection{パラメータの読み出し}
 
-6.4.1項のプログラムの2つ目の太字の部分では、calculation\_methodという名前のパラメータをパラメータサーバから読み出してg\_operatorに値を代入している。
+6.4.1項のプログラムの2つ目の部分では、calculation\_methodという名前のパラメータをパラメータサーバから読み出してg\_operatorに値を代入している。
 
 \begin{lstlisting}[language=C++]
 nh.getParam("calculation_method", g_operator);

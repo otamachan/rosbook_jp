@@ -118,11 +118,11 @@ $ sudo apt-get install ros-indigo-rqt*
 \begin{exercise}[以前のバージョンのROSの削除と他のROSバージョンの併用]
   sudo apt-get purge ros-[以前のバージョン]-*コマンドで、以前のバージョンに関連したすべてのファイルが削除できる。もし、既存のバージョンと併用したい場合には、.bashrcに追加したROS設定ファイルを取得するコマンドの中で
 
-  \begin{lstlisting}[language=ROS]
-source /opt/ros/indigo/setup.bash
+  \begin{lstlisting}[moredelim={[is][keywordstyle]{@@}{@@}}]
+source /opt/ros/@@indigo@@/setup.bash
   \end{lstlisting}
 
-  太文字を利用したいバージョンに変更すれば、複数のバージョンのROSを切り替えて利用できる。
+  青色の文字を利用したいバージョンに変更すれば、複数のバージョンのROSを切り替えて利用できる。
 
  ※Ubuntuのバージョンが利用したいROSバージョンをサポートしている時のみ可能。1章参照のこと。
 \end{exercise}
@@ -230,11 +230,11 @@ ROSを終了するには、<Ctrl>+<c>を押す。
 \subsection{ROS Indigoの簡単インストール}
 \index{インストール}\index{Install}\index{Indigo Igloo}
 
-2.1.1項ではROS標準のインストール方法について説明したが、Ubuntuのバージョンが13.10か14.04であれば、前述したROSのインストールを自動的に実行するスクリプトを準備した。これを利用すれば、容易にROSをインストールできる。
+2.1.1項ではROS標準のインストール方法について説明したが、Ubuntuのバージョンが13.10.xか14.04.xであれば、前述したROSのインストールを自動的に実行するスクリプトを準備した。これを利用すれば、容易にROSをインストールできる。
 ※ただし、インストールできるROSのバージョンはIndigoのみである。
 
 \begin{lstlisting}[language=ROS]
-$ wget https://raw.githubusercontent.com/irvs/rosbook/master/ros_indigo_install.sh
+$ wget https://raw.githubusercontent.com/irvs/rosbook_jp/master/ros_indigo_install.sh
 $ sh ros_indigo_install.sh
 \end{lstlisting}
 

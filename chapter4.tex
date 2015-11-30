@@ -124,36 +124,38 @@ roscoreは、ノード間のメッセージ通信の接続情報を管理するR
 
 \setcounter{num}{0}
 
-\begin{lstlisting}[language=ROS]
-$ roscore
-... logging to /home/xxx/.ros/log/f4b17da6-ecda-11e4-a7bf-d43d7e970cb0/roslaunch-rt-18869.log \stepcounter{num}\circled{\thenum} )
+\noindent\fbox{%
+  \parbox{\textwidth}{%
+\$ roscore\\
+... logging to /home/xxx/.ros/log/f4b17da6-ecda-11e4-a7bf-d43d7e970cb0/roslaunch-rt-18869.log \stepcounter{num}\circled{\thenum}\\
 Checking log directory for disk usage. This may take a while.
-Press Ctrl-C to interrupt  \stepcounter{num}\circled{\thenum}
-Done checking log file disk usage. Usage is <1GB.
+Press Ctrl-C to interrupt  \stepcounter{num}\circled{\thenum}\\
+Done checking log file disk usage. Usage is <1GB.\\
 
-started roslaunch server http://192.168.4.100:47915/
-ros_comm version 1.11.10
+started roslaunch server http://192.168.4.100:47915/\\
+ros\_comm version 1.11.10\\\\
 
 
-SUMMARY
-========
+SUMMARY\\
+========\\\\
 
-PARAMETERS
- * /rosdistro: indigo \stepcounter{num}\circled{\thenum}
- * /rosversion: 1.11.10 \stepcounter{num}\circled{\thenum}
+PARAMETERS\\
+ * /rosdistro: indigo \stepcounter{num}\circled{\thenum}\\
+ * /rosversion: 1.11.10 \stepcounter{num}\circled{\thenum}\\\\
 
-NODES
+NODES\\\\
 
-auto-starting new master
-process[master]: started with pid [18881]
-ROS_MASTER_URI=http://192.168.4.100:11311/ \stepcounter{num}\circled{\thenum}
+auto-starting new master\\
+process[master]: started with pid [18881]\\
+ROS\_MASTER\_URI=http://192.168.4.100:11311/ \stepcounter{num}\circled{\thenum}\\\\
 
-setting /run_id to f4b17da6-ecda-11e4-a7bf-d43d7e970cb0
-process[rosout-1]: started with pid [18894]
-started core service [/rosout] \stepcounter{num}\circled{\thenum}
-\end{lstlisting}
+setting /run\_id to f4b17da6-ecda-11e4-a7bf-d43d7e970cb0\\
+process[rosout-1]: started with pid [18894]\\
+started core service [/rosout] \stepcounter{num}\circled{\thenum}\\
+}%
+}\\
 
-上記の出力結果の太字部分から、①「/home/xxx/.ros/log/」フォルダにログが保存されていること、②<Ctrl>+<C>でroscoreを終了ができること、③「/rosdistro」と④「/rosversion」がパラメータとしてパラメータサーバに登録されたこと、⑤ROS\_MAST\\ER\_URIの情報、⑥「/rosout」ノードが実行されたことなどが確認できる。
+上記の出力結果から、①「/home/xxx/.ros/log/」フォルダにログが保存されていること、②<Ctrl>+<C>でroscoreを終了ができること、③「/rosdistro」と④「/rosversion」がパラメータとしてパラメータサーバに登録されたこと、⑤ROS\_MASTER\_URIの情報、⑥「/rosout」ノードが実行されたことなどが確認できる。
 
 \begin{exercise}[ログの保存場所]
 上の例ではlogが保存される場所が「/home/xxx/.ros/log/」（x\\xxはユーザー名）となっているが、ROS\_HOME環境変数を設定することで任意の場所に保存できる。変数が設定されていない場合は「/home/xxx/.ros/log/」に記録される。

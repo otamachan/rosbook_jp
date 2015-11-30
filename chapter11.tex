@@ -300,7 +300,7 @@ jointタグは、関節の特性を記述する。具体的には、関節の名
   \caption{関節部分のモデリング要素}
 \end{figure}
 
-なお、エンドエフェクタもLink4の先に、linkやjointを組み合わせて作成することができるが、この例では省略している。
+なお、エンドエフェクタもlink4の先に、linkやjointを組み合わせて作成することができるが、この例では省略している。
 
 \subsubsection{エラーチェック}
 \index{URDF}
@@ -817,11 +817,11 @@ $ cd config
 $ gedit arm.yaml
 \end{lstlisting}
 
-arm.yamlファイルには、次のように、ポートの設定、スマートアクチュエータの読み取り/書き込みのサイクル、各関節の規定値が記載されている。ここで、「port:/dev/ttyUSB1」と書かれた太字の部分を、先に調べたポート番号(本書では「port:/dev/ttyUSB0」)に変更する。
+arm.yamlファイルには、次のように、ポートの設定、スマートアクチュエータの読み取り/書き込みのサイクル、各関節の規定値が記載されている。ここで、「port:/dev/ttyUSB1」と書かれた青色の文字の部分を、先に調べたポート番号(本書では「port:/dev/ttyUSB0」)に変更する。
 
 \textbf{ファイル名:turtlebot\_arm/turtlebot\_arm\_bringup/config/arm.yaml}
-\begin{lstlisting}[language=YAML]
-port: /dev/ttyUSB1
+\begin{lstlisting}[moredelim={[is][keywordstyle]{@@}{@@}}]
+port: @@/dev/ttyUSB1@@
 read_rate: 15
 write_rate: 25
 joints: {
@@ -879,10 +879,10 @@ $ cd robots/
 $ sudo gedit kobuki_hexagons_kinect.urdf.xacro
 \end{lstlisting}
 
-このファイルはタートルボットのモデルを記述したものである。エディタで、これに次の太字部分を追加する。
+このファイルはタートルボットのモデルを記述したものである。エディタで、これに次の青色の文字部分を追加する。
 
 \textbf{ファイル名:/opt/ros/indigo/share/turtlebot\_description/robots/kobuki\_hexagons\_ki\\nect.urdf.xacro}
-\begin{lstlisting}[language=XML]
+\begin{lstlisting}[moredelim={[is][keywordstyle]{@@}{@@}}]
 <?xml version="1.0"?>
 <!--
 - Base  : kobuki
@@ -893,10 +893,10 @@ $ sudo gedit kobuki_hexagons_kinect.urdf.xacro
 
   <xacro:include filename="$(find turtlebot_description)/urdf/turtlebot_library.urdf.xacro" />
 
-  <include filename="$(find turtlebot_arm_description)/urdf/arm.xacro" />
+  @@<include filename="$(find turtlebot_arm_description)/urdf/arm.xacro" />
   <turtlebot_arm parent="base_link" color="white" gripper_color="green" joints_vlimit="1.571" pan_llimit="-2.617" pan_ulimit="2.617">
     <origin xyz="0.12 0 0.42"/>
-  </turtlebot_arm>
+  </turtlebot_arm>@@
 
   <kobuki/>
   <stack_hexagons parent="base_link"/>
