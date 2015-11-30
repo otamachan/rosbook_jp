@@ -52,7 +52,7 @@
 
         <ol>
          <li>ROS入門</li>
-         <li>ROS のインストール</li>
+         <li>ROSのインストール</li>
          <li>ROSの基本知識</li>
          <li>ROSコマンド</li>
          <li>ROSツール</li>
@@ -64,23 +64,40 @@
          <li>ROSによるロボットアームの制御</li>
         </ol>
 
-        <h3><a id="citation" class="anchor" href="#citation" aria-hidden="true"><span class="octicon octicon-link"></span></a>[参照]</h3>
-        <!-- <pre class="purebibtex"> -->
-        <pre>          @book{pyo2015ros,
-            title     = {ROS Robot Programming},
-            author    = {Yoonseok Pyo, Ryo Kurazume, Yuuta Watanabe},
-            month     = {11},
-            year      = {2015},
-            publisher = {Kurazume Laboratory},
-            totalpages= {340},
-            isbn      = {9784990873608},
-            url       = {\url{https://github.com/irvs/rosbook_jp}}
-          }
-        </pre>
+        <h3><a id="site" class="anchor" href="#site" aria-hidden="true"><span class="octicon octicon-link"></span></a>[関連リンク]</h3>
+
+        <ul>
+          <li><a href="http://irvs.github.io/rosbook_jp">詳説 ROSロボットプログラミングの公式サイト: http://irvs.github.io/rosbook_jp</a></li>
+          <li><a href="https://github.com/irvs/rosbook_jp">本書のリポジトリ: https://github.com/irvs/rosbook_jp</a></li>
+          <li><a href="http://robotics.ait.kyushu-u.ac.jp">倉爪研究室の公式サイト: http://robotics.ait.kyushu-u.ac.jp</a></li>
+        </ul>
 
         <h3><a id="licenses" class="anchor" href="#licenses" aria-hidden="true"><span class="octicon octicon-link"></span></a>[ライセンス]</h3>
 
-        <p>この本は無料公開版です。また、<a href="https://github.com/irvs/rosbook_jp">https://github.com/irvs/rosbook_jp</a>で内容や図などをすべて公開し、オープンソース化したものです。この作品はクリエイティブ・コモンズ・表示 - 非営利 4.0 国際・ライセンスで提供されています。このライセンスのコピーを閲覧するには、<a href="http://creativecommons.org/licenses/by-nc/4.0/deed.ja">http://creativecommons.org/licenses/by-nc/4.0/deed.ja</a>を訪問して下さい。</p>
+        <p>本書はクリエイティブ・コモンズ・表示 - 非営利 4.0 国際・ライセンスで提供されています。詳しくは、<a href="http://creativecommons.org/licenses/by-nc/4.0/deed.ja">http://creativecommons.org/licenses/by-nc/4.0/deed.ja </a>を参照して下さい。</p>
+
+        <h3><a id="citation" class="anchor" href="#citation" aria-hidden="true"><span class="octicon octicon-link"></span></a>[参照]</h3>
+        <!-- <pre class="purebibtex"> -->
+        <pre>@book{pyo2015ros,
+  title     = {ROS Robot Programming},
+  author    = {Yoonseok Pyo, Ryo Kurazume, Yuuta Watanabe},
+  month     = {11},
+  year      = {2015},
+  publisher = {Kurazume Laboratory},
+  totalpages= {340},
+  isbn      = {9784990873608},
+  url       = {\url{https://github.com/irvs/rosbook_jp}}
+}</pre>
+
+        <h3><a id="make" class="anchor" href="#make" aria-hidden="true"><span class="octicon octicon-link"></span></a>[Make (ソースからPDFファイルを作成する場合のみ)]</h3>
+
+        <pre><code>sudo apt-get install texlive*
+
+git clone https://github.com/irvs/rosbook_jp.git
+cd rosbook_jp
+sh latex.sh</code></pre>
+
+
       </section>
     </div>
     <footer>
