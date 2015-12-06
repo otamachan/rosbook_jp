@@ -6,7 +6,7 @@
 \chapter{ROSのインストール}
 \index{Install}\index{Indigo Igloo}
 
-1章で述べたように、ROSは多くのオペレーティングシステムで動作する。しかし、Ubuntu以外のOSは実験的な提供(Experimental)とされており、公式にはサポートされていない。そこで本書では、操作性や導入のしやすさから、UbuntuにインストールされたROSの使用を前提とする。本書で利用するROSの開発環境は、次の通りである。
+\ref{section:rosversion}項で述べたように、ROSは多くのオペレーティングシステムで動作する。しかし、Ubuntu以外のOSは実験的な提供(Experimental)とされており、公式にはサポートされていない。そこで本書では、操作性や導入のしやすさから、UbuntuにインストールされたROSの使用を前提とする。本書で利用するROSの開発環境は、次の通りである。
 \\
 \begin{itemize}
 \item ハードウェア：IntelやAMD製CPUを内蔵したデスクトップおよびノートパソコン
@@ -28,6 +28,7 @@
 %-------------------------------------------------------------------------------
 \subsection{ROS Indigoの一般的なインストール方法}
 \index{インストール}\index{Install}\index{Indigo Igloo}
+\label{section:rosinstall}
 
 まずROS Indigoのインストール方法について説明する。ただし、以下のインストール手順の説明に登場するソースリストやキーのアドレスは，OSRF財団の運営方針が変わると変更される場合もある。その時は\footnote{\url{http://wiki.ros.org/indigo/Installation/Ubuntu}}のWikiサイトを参照してほしい。
 
@@ -65,7 +66,7 @@ ROSリポジトリからパッケージをダウンロードするために公�
 
 \\
 \begin{lstlisting}[language=ROS]
-$ wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo apt-key add -
+$  sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
 \end{lstlisting}
 
 \subsubsection{パッケージインデックスの更新}
@@ -81,7 +82,7 @@ $ sudo apt-get update && sudo apt-get upgrade
 \subsubsection{ROS Indigo Iglooのインストール}
 \index{Indigo Igloo}
 
-次のコマンドで、デスクトップ用の基本的なROSパッケージをインストールする。ここには、ROS、rqt、RViz、モデルや位置推定などのロボット関連のライブラリ、シミュレーション、ナビゲーションなどが含まれる。rqtとは、標準的なグラフィカルユーザインタフェースであるQTを利用したROS GUI開発ツールであり、RVizはROS標準の3次元可視化ツールである。これらは5章でより詳細に取り上げる。
+次のコマンドで、デスクトップ用の基本的なROSパッケージをインストールする。ここには、ROS、rqt、RViz、モデルや位置推定などのロボット関連のライブラリ、シミュレーション、ナビゲーションなどが含まれる。rqtとは、標準的なグラフィカルユーザインタフェースであるQtを利用したROS GUI開発ツールであり、RVizはROS標準の3次元可視化ツールである。これらは\textbf{\ref{section:tools}}章でより詳細に取り上げる。
 
 \begin{lstlisting}[language=ROS]
 $ sudo apt-get install ros-indigo-desktop-full
@@ -94,7 +95,7 @@ $ sudo apt-get install ros-indigo-rqt*
 \end{lstlisting}
 
 \begin{exercise}[ROSパッケージのバイナリのインストール]
-  他のROSパッケージをインストールしたい場合には、次のようにapt-cacheのコマンドを利用して、ros-indigoで始まるパッケージを検索する。現在、以下のコマンドを実行すると、約1,600個のパッケージを確認することができる。
+  他のROSパッケージをインストールしたい場合には、次のようにapt-cacheのコマンドを利用して、ros-indigoで始まるパッケージを検索する。現在、以下のコマンドを実行すると、約2,000個のパッケージを確認することができる。
 
   \begin{lstlisting}[language=ROS]
   $ sudo apt-cache search ros-indigo*
@@ -124,7 +125,7 @@ source /opt/ros/@@indigo@@/setup.bash
 
   青色の文字を利用したいバージョンに変更すれば、複数のバージョンのROSを切り替えて利用できる。
 
- ※Ubuntuのバージョンが利用したいROSバージョンをサポートしている時のみ可能。1章参照のこと。
+ ※Ubuntuのバージョンが利用したいROSバージョンをサポートしている時のみ可能。\textbf{\ref{section:xxxxx}}項参照のこと。
 \end{exercise}
 
 \subsubsection{rosdepの初期化}
@@ -203,7 +204,7 @@ Press Ctrl-C to interrupt
 Done checking log file disk usage. Usage is <1GB.
 
 started roslaunch server http://192.168.4.100:47915/
-ros_comm version 1.11.10
+ros_comm version 1.11.16
 
 
 SUMMARY
@@ -348,6 +349,7 @@ export ROS_MASTER_URI=http://${ROS_HOSTNAME}:11311
 %-------------------------------------------------------------------------------
 \subsection{ROSの動作テスト}
 \index{動作テスト}\index{Test}
+\label{section:turtlesimtest}
 
 ROSをインストールした後、正常に動作するかを確認するために、ROSが提供する簡単なノード（☞用語集:\textbf{\nameref{section:terms}(pp.\pageref{section:terms})}）の実行方法について説明する。使用するのはturtlesimというパッケージで、これは、ROSのシンボルである亀が画面に表示され、キーボード操作によって移動するプログラムである。
 
