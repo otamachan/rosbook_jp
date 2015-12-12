@@ -1,0 +1,44 @@
+sudo: false
+language: generic
+before_install:
+# Install texlive using install-tl
+- wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+- tar -xzf install-tl-unx.tar.gz
+- export INSTALL_TL_DIR=`find . -name install-tl-20*`
+- |
+  cat << EOF >> texlive.profile
+  selected_scheme scheme-custom
+  TEXDIR /tmp/texlive
+  TEXMFCONFIG ~/.texlive2015/texmf-config
+  TEXMFHOME ~/texmf
+  TEXMFLOCAL /tmp/texlive/texmf-local
+  TEXMFSYSCONFIG /tmp/texlive/texmf-config
+  TEXMFSYSVAR /tmp/texlive/texmf-var
+  TEXMFVAR ~/.texlive2015/texmf-var
+  binary_x86_64-linux 1
+  collection-basic 1
+  collection-latex 1
+  collection-latexrecommended 1
+  collection-langjapanese 1
+  collection-fontsrecommended 1
+  option_doc 0
+  option_src 0
+  EOF
+- ${INSTALL_TL_DIR}/install-tl --profile=./texlive.profile
+- export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
+- tlmgr install
+  biblatex
+  enumitem
+  etoolbox
+  footmisc
+  framed
+  ipaex-type1
+  lipsum
+  logreq
+  mdframed
+  needspace
+  textpos
+  titlesec
+  xstring
+script:
+- sh latex.sh
