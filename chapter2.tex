@@ -64,7 +64,6 @@ $ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) ma
 
 ROSリポジトリからパッケージをダウンロードするために公開鍵を追加する。次のように入力する。
 
-\\
 \begin{lstlisting}[language=ROS]
 $  sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
 \end{lstlisting}
@@ -74,7 +73,6 @@ $  sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA
 
 ソースリストにROSリポジトリアドレスを追加したので、以下のコマンドでパッケージリストをアップデートする。必須ではないが、ROSのインストール前に、インストール済みのUbuntu関連の全てのパッケージを最新のものにしておくとよい。
 
-\\
 \begin{lstlisting}[language=ROS]
 $ sudo apt-get update && sudo apt-get upgrade
 \end{lstlisting}
