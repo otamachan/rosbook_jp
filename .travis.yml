@@ -1,0 +1,59 @@
+sudo: false
+language: generic
+before_install:
+# Install texlive using install-
+- wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+- tar -xzf install-tl-unx.tar.gz
+- export INSTALL_TL_DIR=`find . -name install-tl-20*`
+- |
+  cat << EOF >> texlive.profile
+  selected_scheme scheme-custom
+  TEXDIR /tmp/texlive
+  TEXMFCONFIG ~/.texlive2015/texmf-config
+  TEXMFHOME ~/texmf
+  TEXMFLOCAL /tmp/texlive/texmf-local
+  TEXMFSYSCONFIG /tmp/texlive/texmf-config
+  TEXMFSYSVAR /tmp/texlive/texmf-var
+  TEXMFVAR ~/.texlive2015/texmf-var
+  binary_x86_64-linux 1
+  collection-basic 1
+  collection-latex 1
+  collection-latexrecommended 1
+  collection-langjapanese 1
+  collection-fontsrecommended 1
+  option_doc 0
+  option_src 0
+  EOF
+- ${INSTALL_TL_DIR}/install-tl --profile=./texlive.profile
+- export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
+- tlmgr install
+  biblatex
+  enumitem
+  etoolbox
+  footmisc
+  framed
+  ipaex-type1
+  lipsum
+  logreq
+  mdframed
+  needspace
+  textpos
+  titlesec
+  xstring
+script:
+- sh latex.sh || true
+after_success:
+- #if [ ${TRAVIS_BRANCH} != "master" ]; then exit; fi
+- mkdir pdf
+- cp *.pdf pdf
+- cd pdf
+- git init
+- git config user.name "Travis CI"
+- git config user.email "otamachan@mail.com"
+- git add *.pdf
+- git commit -m "Update pdf"
+- echo ${TRAVIS_REPO_SLUG}
+- git push --force --quiet "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git" master:pdf > /dev/null 2>&1
+env:
+  global:
+    secure: "A/Z808I0zUKrqi/0uVFkgNAgRoBG237rRUlOEyW1ZEWnscAY3Z7Q3saMON/tk6Lp64JfbVc23ZT8a5YkguPQbQxwws5fqUpJ73NezZkuYpExk4NPZiR51/xuqzLGgJxYKZo2poW7bbBR4BszIunpOOvV/deAaDIbij62lj0j1NZTq35zewhwBT7C+z/SD1yXsb/XQElnIOM4BAKap0FAZENRz9om/XTVcQK/1c46bj8B+Yf1A2wQS1dgs3PgPgiCD4e+IepCiMu2VRE2Jyomp2sYmvryXFFh6WC7VykXUbLF62MB6/q/lK5V2Uy+lSTpyY3z5lflCBXoWJgtqtB/NYvlbziPF1NCyNe7B6rkeicfLfuIiOnqbfz/VtWLca4mpkaQpPZoSDAhxcpnM0YVE5GA7P9mYmQ7sBQvMRQ6ArE6pofjpfsvSw+2S2zqxGxTYxj8QefwIycm+P8kH60VlbK36Tmh1hlrljj0/5LF8W29QLfZ4O7Kxf2+tuIVJjfIdhgeS9TWLahAqdHu2dOrsVbovAdYB+ve0+xbikYr7z3dgG/IlRUWHyBOZDgPOzvF74jJH0m7Iah922ZyKaoytkzlMUKA5NBR5oloQqG6IKBDa7hKfOv9S9GTwcAZnO2vYNLpd/d4x1yv45jDXvTlqGYbBMH20qv0IRBo8kCg/L0="
