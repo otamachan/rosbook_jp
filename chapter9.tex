@@ -441,7 +441,7 @@ Kobukiに搭載するPCであり、Kobukiと直接通信して動作コマンド
 
 %-------------------------------------------------------------------------------
 \subsection{Kobukiパッケージのインストール}
-\index{ROS\_HOSTNAME}\index{ROS\_MASTER\_URI}
+\index{ROS\_IP}\index{ROS\_MASTER\_URI}
 
 開発環境が整ったら、デスクトップPCとノートパソコンにKobuki関連パッケージをインストールする。
 
@@ -455,10 +455,10 @@ Kobukiに搭載したノートパソコンにROS Indigoバージョンをイン�
 
 \stepcounter{num}\circled{\thenum} ノートパソコンのROSの環境設定
 
-「.bashrc」ファイルに記述されたROS\_MASTER\_URIにはデスクトップPCのIPアドレスを設定し、ROS\_HOSTNAMEにはノートパソコンのIPアドレスを設定する。それぞれのIPアドレスは、ターミナルウィンドウを開いてifconfigコマンドを入力すれば確認できる。「.bashrc」ファイルの変更方法の詳細については、2.2節を参考にしてほしい。\\
+「.bashrc」ファイルに記述されたROS\_MASTER\_URIにはデスクトップPCのIPアドレスを設定し、ROS\_IPにはノートパソコンのIPアドレスを設定する。それぞれのIPアドレスは、ターミナルウィンドウを開いてifconfigコマンドを入力すれば確認できる。「.bashrc」ファイルの変更方法の詳細については、2.2節を参考にしてほしい。\\
 
 \begin{lstlisting}[language=bash]
-export ROS_HOSTNAME = %*ノートパソコンのIPアドレス*)
+export ROS_IP = %*ノートパソコンのIPアドレス*)
 export ROS_MASTER_URI = http: //%*デスクトップPCのIPアドレス*):11311
 \end{lstlisting}
 
@@ -489,13 +489,13 @@ $ sudo apt-get install ssh
 
 \stepcounter{num}\circled{\thenum} デスクトップPCのROSの環境設定
 
-ROS\_MASTER\_URIとROS\_HOSTNAMEにデスクトップPCのIPアドレスを設定する。\\
+ROS\_MASTER\_URIとROS\_IPにデスクトップPCのIPアドレスを設定する。\\
 
 \begin{lstlisting}[language=bash]
-export ROS_HOSTNAME = %*デスクトップPCのIPアドレス*)
+export ROS_IP = %*デスクトップPCのIPアドレス*)
 export ROS_MASTER_URI = http: //%*デスクトップPCのIPアドレス*):11311
 %*あるいは*)
-export ROS_MASTER_URI = http: //${ROS_HOSTNAME}:11311
+export ROS_MASTER_URI = http: //${ROS_IP}:11311
 \end{lstlisting}
 
 \stepcounter{num}\circled{\thenum} Kobuki関連のすべてのパッケージのインストール

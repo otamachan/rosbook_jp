@@ -186,19 +186,19 @@ RVizが起動したら、Displaysオプションを変更する。RViz左下の<
 
 %-------------------------------------------------------------------------------
 \subsubsection{カメラが接続されているコンピュータ上でマスターを起動}
-\index{ROS\_HOSTNAME}\index{ROS\_MASTER\_URI}
+\index{ROS\_IP}\index{ROS\_MASTER\_URI}
 
-マスターはどのコンピュータで起動しても構わないが、今回の例では、カメラが接続されているコンピュータをマスターとする。最初に行う設定はROS\_MASTER\_URIと\\ROS\_HOSTNAMEなどのネットワーク変数の変更である。まず、geditなどの文書編集プログラムを使用して、次のように「.bashrc」ファイルを開く。
+マスターはどのコンピュータで起動しても構わないが、今回の例では、カメラが接続されているコンピュータをマスターとする。最初に行う設定はROS\_MASTER\_URIと\\ROS\_IPなどのネットワーク変数の変更である。まず、geditなどの文書編集プログラムを使用して、次のように「.bashrc」ファイルを開く。
 
 \begin{lstlisting}[language=ROS]
 $ gedit ~/.bashrc
 \end{lstlisting}
 
-「.bashrc」ファイルを読み込み、一番下までスクロールして、次のようにROS\_MAS\\TER\_URIとROS\_HOSTNAME変数を変更しよう。ただし、この例のIPアドレス（ROS\_\\MASTER\_URI、ROS\_HOSTNAME ともに192.168.4.100で、カメラが接続されたコンピュータのIPアドレス）は、あくまでも例であり、実際のPCのIPアドレスに変更する必要がある。 IPを確認するには、2.2.1項で説明したifconfigコマンドを使用する。
+「.bashrc」ファイルを読み込み、一番下までスクロールして、次のようにROS\_MAS\\TER\_URIとROS\_IP変数を変更しよう。ただし、この例のIPアドレス（ROS\_\\MASTER\_URI、ROS\_IP ともに192.168.4.100で、カメラが接続されたコンピュータのIPアドレス）は、あくまでも例であり、実際のPCのIPアドレスに変更する必要がある。 IPを確認するには、2.2.1項で説明したifconfigコマンドを使用する。
 
 \begin{lstlisting}[language=bash]
 export ROS_MASTER_URI = http://192.168.4.100:11311
-export ROS_HOSTNAME = 192.168.4.100
+export ROS_IP = 192.168.4.100
 \end{lstlisting}
 
 次にroscoreコマンドでマスターを起動して、uvc\_camera\_nodeノードを実行する。
@@ -210,13 +210,13 @@ $ rosrun uvc_camera uvc_camera_node
 
 %-------------------------------------------------------------------------------
 \subsubsection{リモートコンピュータでの画像表示}
-\index{ROS\_HOSTNAME}\index{ROS\_MASTER\_URI}
+\index{ROS\_IP}\index{ROS\_MASTER\_URI}
 
-リモートコンピュータでも同様に、「.bashrc」ファイルを開いてROS\_MASTER\_URIと\\ROS\_HOSTNAME変数を変更する。次のように、ROS\_MASTER\_URIはカメラが接続されたコンピュータのIPアドレス（192.168.4.100）とし、ROS\_HOSTNAME変数はリモートコンピュータのIPアドレス（ここでは192.168.4.120）に変更する。ここでもリモートコンピュータのIPアドレス192.168.4.120は一例なので、実際のコンピュータのIPアドレスをifconfigで確認し、正しく入力する必要がある。
+リモートコンピュータでも同様に、「.bashrc」ファイルを開いてROS\_MASTER\_URIと\\ROS\_IP変数を変更する。次のように、ROS\_MASTER\_URIはカメラが接続されたコンピュータのIPアドレス（192.168.4.100）とし、ROS\_IP変数はリモートコンピュータのIPアドレス（ここでは192.168.4.120）に変更する。ここでもリモートコンピュータのIPアドレス192.168.4.120は一例なので、実際のコンピュータのIPアドレスをifconfigで確認し、正しく入力する必要がある。
 
 \begin{lstlisting}[language=bash]
 export ROS_MASTER_URI = http://192.168.4.100:11311
-export ROS_HOSTNAME = 192.168.4.120
+export ROS_IP = 192.168.4.120
 \end{lstlisting}
 
 次にimage\_viewを起動する。

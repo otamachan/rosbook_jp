@@ -267,8 +267,8 @@ $ gedit ~/.bashrc
 3: source ~/catkin_ws/devel/setup.bash
 4:
 5: # Set ROS Network
-6: export ROS_HOSTNAME=xxx.xxx.xxx.xxx
-7: export ROS_MASTER_URI=http://${ROS_HOSTNAME}:11311
+6: export ROS_IP=xxx.xxx.xxx.xxx
+7: export ROS_MASTER_URI=http://${ROS_IP}:11311
 8:
 9: # Set ROS alias command
 10: alias cw='cd ~/catkin_ws'
@@ -289,14 +289,14 @@ $ source ~/.bashrc
 
 %-------------------------------------------------------------------------------
 \subsubsection{ネットワーク設定}
-\index{ROS\_HOSTNAME}\index{ROS\_MASTER\_URI}
+\index{ROS\_IP}\index{ROS\_MASTER\_URI}
 
-「.bashrc」の追加部分の6～7行目はROSネットワークに関する記述であり、ROS\_MAS TER\_URIとROS\_HOSTNAMEを設定する意味をもつ。ROSはTCP/IPネットワークを利用した通信を行うため、この設定は極めて重要である。現段階では、どちらも使用しているPCのIPアドレスを入力すれば良い。今後、ROSネットワーク全体を統括するPC（マスターPC、roscoreを起動するPC）が一台だけ別にあり、複数台のロボットでそれぞれマスターPCとは異なるPC（ホストPC）を使用する場合、これらを分けて入力すると、異なるPC間で通信が可能になる。次に、マスターPC、ホストPCともに現在使用しているPCであり、このPCのIPアドレスが192.168.4.100である場合の設定例を示す。
+「.bashrc」の追加部分の6～7行目はROSネットワークに関する記述であり、ROS\_MAS TER\_URIとROS\_IPを設定する意味をもつ。ROSはTCP/IPネットワークを利用した通信を行うため、この設定は極めて重要である。現段階では、どちらも使用しているPCのIPアドレスを入力すれば良い。今後、ROSネットワーク全体を統括するPC（マスターPC、roscoreを起動するPC）が一台だけ別にあり、複数台のロボットでそれぞれマスターPCとは異なるPC（ホストPC）を使用する場合、これらを分けて入力すると、異なるPC間で通信が可能になる。次に、マスターPC、ホストPCともに現在使用しているPCであり、このPCのIPアドレスが192.168.4.100である場合の設定例を示す。
 
 \begin{lstlisting}[language=bash]
 # Set ROS Network
-export ROS_HOSTNAME=192.168.4.100
-export ROS_MASTER_URI=http://${ROS_HOSTNAME}:11311
+export ROS_IP=192.168.4.100
+export ROS_MASTER_URI=http://${ROS_IP}:11311
 \end{lstlisting}
 
 \begin{exercise}[ifconfig]
@@ -335,7 +335,7 @@ export ROS_MASTER_URI=http://${ROS_HOSTNAME}:11311
   $ export | grep ROS
   declare .x ROS_DISTRO="indigo"
   declare .x ROS_ETC_DIR="/opt/ros/indigo/etc/ros"
-  declare .x ROS_HOSTNAME="192.168.4.100"
+  declare .x ROS_HIP="192.168.4.100"
   declare .x ROS_MASTER_URI="http://192.168.4.100:11311"
   declare .x ROS_PACKAGE_PATH="/home/xxx/catkin_ws/src:/opt/ros/indigo/share:/opt/ros/indigo/ stacks"
   declare .x ROS_ROOT="/opt/ros/indigo/share/ros"
